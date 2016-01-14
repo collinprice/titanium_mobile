@@ -984,10 +984,12 @@ public abstract class TiBaseActivity extends AppCompatActivity
 
 	public static void callOrientationChangedListener(Activity activity)
 	{
-		int currentOrientation = activity.getWindowManager().getDefaultDisplay().getRotation();
-		if (orientationChangedListener != null && previousOrientation != currentOrientation) {
-			previousOrientation = currentOrientation;
-			orientationChangedListener.onOrientationChanged (currentOrientation);
+		if (activity != null) {
+			int currentOrientation = activity.getWindowManager().getDefaultDisplay().getRotation();
+			if (orientationChangedListener != null && previousOrientation != currentOrientation) {
+				previousOrientation = currentOrientation;
+				orientationChangedListener.onOrientationChanged (currentOrientation);
+			}	
 		}
 	}
 
