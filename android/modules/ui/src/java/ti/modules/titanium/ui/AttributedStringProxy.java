@@ -30,6 +30,8 @@ import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.text.style.SuperscriptSpan;
+import android.text.style.SubscriptSpan;
 
 @Kroll.proxy(creatableInModule=UIModule.class, propertyAccessors = {
 	TiC.PROPERTY_ATTRIBUTES,
@@ -188,6 +190,14 @@ public class AttributedStringProxy extends KrollProxy
 										break;
 									case UIModule.ATTRIBUTE_UNDERLINES_STYLE:
 										spannableText.setSpan(new UnderlineSpan(), range[0], range[0] + range[1],
+											Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+										break;
+									case UIModule.ATTRIBUTE_SUPERSCRIPT:
+										spannableText.setSpan(new SuperscriptSpan(), range[0], range[0] + range[1],
+											Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+										break;
+									case UIModule.ATTRIBUTE_SUBSCRIPT:
+										spannableText.setSpan(new SubscriptSpan(), range[0], range[0] + range[1],
 											Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 										break;
 									case UIModule.ATTRIBUTE_LINK:
